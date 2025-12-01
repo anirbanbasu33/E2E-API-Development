@@ -1,3 +1,12 @@
 Starting a new project
 
 commit_1 : used thunderclient to test APIs, before pydantic
+
+commit_2: my_post variable had referenced Post pydantic model, since we passed it into our path ops,
+          fastapi will automatically validate the data received from client based on this model
+          
+          my_post stores the data as pydantic model. each pydantic model has .dict method
+          so convert pydantic model to dict by my_post.dict()
+          .dict() is depricated ==> use .model_dump()
+
+          
