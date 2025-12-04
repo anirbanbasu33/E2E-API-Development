@@ -9,4 +9,13 @@ commit_2: my_post variable had referenced Post pydantic model, since we passed i
           so convert pydantic model to dict by my_post.dict()
           .dict() is depricated ==> use .model_dump()
 
-          
+commit_3: Before DB, all api operations concluded
+
+#### NOTES #####
+
+source venv/bin/activate
+uvicorn main:app --reload
+deactivate
+
+# New uvicorn reload- (inside app dir, checking file named main)
+uvicorn app.main:app --reload
