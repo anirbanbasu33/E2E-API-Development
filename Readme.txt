@@ -10,6 +10,7 @@ commit_2: my_post variable had referenced Post pydantic model, since we passed i
           .dict() is depricated ==> use .model_dump()
 
 commit_3: Before DB, all api operations concluded
+commit_4: DB operations set -- 5.01.00
 
 #### NOTES #####
 
