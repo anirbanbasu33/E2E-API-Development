@@ -11,6 +11,7 @@ commit_2: my_post variable had referenced Post pydantic model, since we passed i
 
 commit_3: Before DB, all api operations concluded
 commit_4: DB operations set -- 5.01.00
+commit_5: Pydantic models vs ORM models -- 5.28
 
 #### NOTES #####
 
@@ -20,3 +21,4 @@ deactivate
 
 # New uvicorn reload- (inside app dir, checking file named main)
 uvicorn app.main:app --reload
+
