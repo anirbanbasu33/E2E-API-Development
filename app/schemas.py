@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from datetime import datetime
 
 class PostBase(BaseModel):
@@ -7,14 +7,31 @@ class PostBase(BaseModel):
     published: bool = True
 
 class PostCreate(PostBase):
-
     pass
-### Schema for response model
+
 class Post(PostBase):
     id: int
     created_at: datetime
-
-    ## tells pydantic to read the data even if it is not a dict, but an ORM model (like sqlalchemy model)
     class Config:
         # orm_mode = True
         from_attributes = True
+
+## creating an user schema
+class UserCreate(BaseModel):
+    email: EmailStr
+    password: str
+
+
+## create a response model for user output (without password)
+class UserOut(BaseModel):
+    id: int
+    email: EmailStr
+    created_at: datetime
+
+    # convert the sqlalchemy model to pydantic model    
+    class Config:
+        # orm_mode = True
+        from_attributes = True
+        
+
+        

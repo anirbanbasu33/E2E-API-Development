@@ -10,9 +10,12 @@ commit_2: my_post variable had referenced Post pydantic model, since we passed i
           .dict() is depricated ==> use .model_dump()
 
 commit_3: Before DB, all api operations concluded
-commit_4: DB operations set -- 5.01.00
-commit_5: Pydantic models vs ORM models -- 5.28
+commit_4: DB operations 
+commit_5: Pydantic models vs ORM models 
 commit_6: define a pydantic or schema model to define exact shape of a response
+commit_7: user registration | hashing | get users
+          installed 2 libs (passlib, bcrypt) - maintain proper versions
+
 
 #### NOTES #####
 
