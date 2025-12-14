@@ -15,6 +15,8 @@ commit_5: Pydantic models vs ORM models
 commit_6: define a pydantic or schema model to define exact shape of a response
 commit_7: user registration | hashing | get users
           installed 2 libs (passlib, bcrypt) - maintain proper versions
+commit_8: keeping routers (path ops) seperate 
+commit_9: Routers
 
 
 #### NOTES #####
