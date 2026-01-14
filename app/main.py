@@ -9,7 +9,8 @@ from sqlalchemy.orm import Session
 import time
 from . import models, schemas, utils
 from .database import engine, get_db
-from .routers import post, user
+from .routers import post, user, auth
+
 
 
 models.Base.metadata.create_all(bind=engine)  #create the database tables (models)
@@ -32,11 +33,14 @@ while True:
 # first app object we reference
 app.include_router(post.router)
 app.include_router(user.router)
+app.include_router(auth.router)
 
 
 ## HOME ROUTE
 @app.get("/")
 def root():
     return {"message": "Hello, World!"}
+
+
 
 
