@@ -19,6 +19,8 @@ commit_8: keeping routers (path ops) seperate
 commit_9: Routers
 commit_10: Creating a JWT Token
 commit_11: OAuth2 PasswordRequestForm
+commit_12: Verify if user are logged in 
+commit_13: Protecting all routes
 
 
 #### NOTES #####

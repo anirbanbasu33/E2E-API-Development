@@ -5,10 +5,7 @@ from .. import database, schemas, models, utils, oauth2
 
 router = APIRouter(tags=['Authentication'])
 
-## One change in retreving the user creds form login route, instead of passing in the body 
-# we are using a builtin utility from fastapi 
-
-@router.post('/login')
+@router.post('/login', response_model=schemas.Token)
 def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(database.get_db)):
     
     user = db.query(models.User).filter(
@@ -16,12 +13,12 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session =
 
     if not user:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail=f"Invalid credentials")
+            status_code=status.HTTP_403_FORBIDDEN, detail=f"Invalid credentials")
     
     # verify password
     if not utils.verify(user_credentials.password, user.password):
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail=f"Invalid credentials")
+            status_code=status.HTTP_403_FORBIDDEN, detail=f"Invalid credentials")
     
 
     # create a token
@@ -30,10 +27,6 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session =
     
     return {"access_token": access_token, "token_type": "bearer"}
 
-
-
-    
-    # return {"token": "example token"}
 
 
 
